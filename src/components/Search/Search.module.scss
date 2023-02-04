@@ -1,0 +1,38 @@
+
+.main {
+	display: flex;
+	gap: 0 10px;
+}
+
+.search {
+	height: var(--hei);
+	border-bottom: 1px solid rgba(255, 0, 0, 1);
+	display: flex;
+	flex-grow: 1;
+	max-width: 33vw;
+
+	input {
+		font-size: calc(var(--hei) * 0.7);
+		color: white;
+		font-weight: 200;
+	}
+}
+
+.searchBtn {
+	color: red;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	height: var(--hei);
+	width: var(--hei);
+
+	&:hover {
+		color: white;
+		border-color: white;
+	}
+
+	svg {
+		font-size: calc(var(--hei) * 0.7);
+	}
+}

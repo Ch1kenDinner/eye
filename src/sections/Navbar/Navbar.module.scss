@@ -1,0 +1,25 @@
+
+.main {
+	background-color: #000;
+	padding: 10px 20px;
+	display: flex;
+	gap: 0 10px;
+	align-items: center;
+
+	font-size: var(--hei);
+
+	svg {
+		font-size: var(--hei);
+	}
+}
+
+.logo {
+	margin-right: auto;
+	svg {
+		transform: rotate(-55deg) translate(-20%, 0%);
+	}
+	span {
+		font-weight: bold;
+		color: white;
+	}
+}

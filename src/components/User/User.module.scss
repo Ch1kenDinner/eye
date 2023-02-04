@@ -1,0 +1,40 @@
+.main {
+	display: flex;
+	gap: 0 10px;
+	align-items: center;
+	width: min-content;
+
+	width: 100%;
+
+	&.lg {
+		flex-direction: column;
+		gap: 10px 0;
+
+		.image {
+			height: 20vh;
+		}
+		.name {
+			font-size: 3vh;
+			font-weight: 700;
+			color: white;
+		}
+	}
+}
+
+.image {
+	border-radius: 50%;
+	overflow: hidden;
+	height: 100%;
+	min-width: 20px;
+	aspect-ratio: 1/1;
+}
+
+.name {
+	white-space: nowrap;
+}
+
+.message {
+	margin: 0 auto;
+	color: white;
+	font-size: 30px;
+}

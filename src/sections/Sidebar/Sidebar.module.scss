@@ -1,0 +1,62 @@
+.main {
+	background-color: black;
+	color: white;
+
+	font-size: calc(var(--hei) * 0.5);
+	font-weight: 200;
+}
+
+.list {
+	display: flex;
+	flex-direction: column;
+}
+
+.main, .list {
+	width: min-content;	
+}
+
+
+
+.item {
+	padding: 10px;
+	border-top: 1px solid rgba(255, 255, 255, 0.4);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+	cursor: pointer;
+
+	display: flex;
+	align-items: center;
+	height: 40px;
+
+	transition: width 1s ease;
+
+	&.current, &:hover {
+		// background: 
+		// linear-gradient(to left, rgba(255, 0, 0, 0.5), rgba(255, 0, 0, 0) 30%), 
+		// linear-gradient(to right, rgba(255, 0, 0, 0.5), rgba(255, 0, 0, 0) 30%)
+		box-shadow: red 0px -2px 2px 0px inset;
+	}
+
+		// box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+		// rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+
+	// &:hover {
+	// 	background: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(255, 0, 0, 0.3) 90%, red 100%);
+	// }
+
+	& + .item {
+		border-top: none;
+	}
+
+	.text {
+		width: 0px;
+		overflow: hidden;
+
+		transition: width 0.3s ease;
+	}
+}
+.main:hover .item {
+	.text {
+		width: auto;
+		padding-left: 10px;
+	}
+}

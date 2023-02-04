@@ -1,19 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from 'react-dom/client'
+import { Provider } from 'react-redux/es/exports'
+import App from './App'
+import './index.scss'
+import { store } from './redux/store'
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+const root = ReactDOM.createRoot(document.querySelector('#root') as HTMLElement)
+
 root.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>
+  </Provider>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+
+
+window.addEventListener("keydown", (e) => {
+	if (e.key === 'n') document.querySelectorAll('*').forEach((el) => el.setAttribute('style', 'outline: 1px solid red'))
+})
+window.addEventListener("keyup", (e) => {
+	if (e.key === 'n') document.querySelectorAll('*').forEach((el) => el.setAttribute('style', ''))
+})
