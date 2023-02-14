@@ -1,4 +1,4 @@
-import { MdHome, MdCode, MdMusicNote, MdSchool } from "react-icons/md";
+import { MdCode, MdHome, MdMusicNote, MdSchool } from "react-icons/md";
 
 export const categories = [
   { name: "New", icon: <MdHome /> },
