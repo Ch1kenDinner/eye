@@ -9,7 +9,6 @@ import {
 } from "../api/types/channelDetailsResponse";
 import { DP, IDefaultState } from "../common/types";
 import { useCustomState } from "../hooks/useCustomState";
-import channelDetails from "../mocks/channelDetails";
 import { mainActions } from "../redux/mainSlice";
 import { useCustomDispatch } from "../redux/store";
 
@@ -41,12 +40,12 @@ const User = ({ channelId, className, size = "md" }: UserProps) => {
 
   useEffect(() => {
     if (!channelId) return;
-    // state.loading = true;
-    // api
-    //   .get<IChannelDetailsResponse>(apiRoutes.channelDetails(channelId))
-    //   .then(({ data }) => (state.data = data.items[0]))
-    //   .finally(() => (state.loading = false));
-    state.data = channelDetails.items[0];
+    state.loading = true;
+    api
+      .get<IChannelDetailsResponse>(apiRoutes.channelDetails(channelId))
+      .then(({ data }) => (state.data = data.items[0]))
+      .finally(() => (state.loading = false));
+    // state.data = channelDetails.items[0];
   }, [channelId]);
 
   if (state.loading) return <></>;

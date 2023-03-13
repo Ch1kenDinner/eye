@@ -14,7 +14,6 @@ import { formatInt, formatLink } from "../common/helpers";
 import { DP } from "../common/types";
 import User from "../components/User";
 import { useCustomState } from "../hooks/useCustomState";
-import videoDetailsResponse from "../mocks/videoDetailsResponse";
 import { useCustomSelector } from "../redux/store";
 
 interface IInitState {
@@ -43,9 +42,8 @@ const VideoDetails = ({ className }: DP) => {
 
   useEffect(() => {
     if (!videoId) return;
-    // state.loading = true;
-    // fetchVideoDetails().finally(() => (state.loading = false));
-    state.data = videoDetailsResponse.items[0];
+    state.loading = true;
+    fetchVideoDetails().finally(() => (state.loading = false));
   }, [videoId]);
 
   // if (state.loading) return <>Loading...</>;

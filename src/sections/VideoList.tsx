@@ -11,7 +11,6 @@ import { ISearchResponse, IVideo } from "../api/types/searchResponse";
 import { DP } from "../common/types";
 import VideoCard from "../components/VideoCard";
 import { useCustomState } from "../hooks/useCustomState";
-import searchResponse from "../mocks/searchResponse";
 import { useCustomSelector } from "../redux/store";
 
 interface IInitState {
@@ -54,41 +53,37 @@ export const VideoList = ({ className }: DP) => {
   };
 
   useEffect(() => {
-    state.data = searchResponse.items;
-  }, []);
+    switch (currentTemplate) {
+      case "index":
+        fetchCategorySearch();
+    }
+  }, [currentTemplate]);
 
-  // useEffect(() => {
-  //   switch (currentTemplate) {
-  //     case "index":
-  //       fetchCategorySearch();
-  //   }
-  // }, [currentTemplate]);
+  useEffect(() => {
+    switch (currentTemplate) {
+      case "index":
+        fetchCategorySearch();
+        break;
+    }
+  }, [currentCategory]);
 
-  // useEffect(() => {
-  //   switch (currentTemplate) {
-  //     case "index":
-  //       fetchCategorySearch();
-  //       break;
-  //   }
-  // }, [currentCategory]);
+  useEffect(() => {
+    switch (currentTemplate) {
+      case "index":
+      case "details":
+        fetchQuerySearch();
+    }
+  }, [searchQuery]);
 
-  // useEffect(() => {
-  //   switch (currentTemplate) {
-  //     case "index":
-  //     case "details":
-  //       fetchQuerySearch();
-  //   }
-  // }, [searchQuery]);
+  useEffect(() => {
+    switch (currentTemplate) {
+      case "channel":
+        fetchChannelVideos();
+    }
+  }, [channelId]);
 
-  // useEffect(() => {
-  //   switch (currentTemplate) {
-  //     case "channel":
-  //       fetchChannelVideos();
-  //   }
-  // }, [channelId]);
-
-  // if (state.loading) return <>Load</>;
-  // if (!state.data) return <>Not found</>;
+  if (state.loading) return <>Load</>;
+  if (!state.data) return <>Not found</>;
 
   return (
     <Wrapper className={className}>
